@@ -5,7 +5,7 @@
   font-family: "Josefin Sans", sans-serif;
 }
 body {
-  background-color: rgba(15, 66, 66, 0.24);
+  background-color: rgba(68, 83, 83, 0.5);
 }
 .container {
   margin: 0 auto;
@@ -13,14 +13,24 @@ body {
 }
 /* .nav_right {
 } */
+
+.nav_section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .nav_right ul {
   display: flex;
   justify-content: flex-end;
   gap: 3em;
   list-style-type: none;
   font-size: 1.2em;
-  position: relative;
-  top: -5em;
+
+}
+
+.nav_right ul li a{
+  padding: 1em 3em;
+
 }
 .nav_right ul a {
   text-decoration: none;
@@ -28,8 +38,7 @@ body {
 }
 .nav_right ul :hover a {
   background-color: rgb(224, 224, 83);
-  color: #fff;
-  padding: 1em 3em;
+  color:black;
 }
 
 /* .hero_container h1{
@@ -64,7 +73,7 @@ font-size: 1.5rem;
   margin: 2em 0;
   box-shadow: 0 0 5px;
   height: 30vh;
-  background-color: rgba(0, 0, 139, 0.075);
+  background-color: rgba(68, 83, 83, 0.5);
 }
 
 .main_content p {
@@ -98,7 +107,7 @@ margin:10px 0;
   line-height: 2em;
 }
 .test{
-background-color:  rgba(0, 0, 139, 0.075);
+background-color: rgba(68, 83, 83, 0.5);
 display:flex;
 justify-content: space-between;
 align-items: center;
@@ -118,11 +127,19 @@ font-size: 1.2em;
 position: absolute;
 top:10em;
 }
-.test_content ul li{
-  
+.test_content ul a{
+  text-decoration: none;
+  color:black;
 }
+/* .test_content button{
+  width:520px;
+  margin-bottom:20px;
+  padding: 1em;
+  font-size: 1em;
+  
+} */
 .contact_content{
-  background-color:  rgba(0, 0, 139, 0.075);
+  background-color:  rgba(68, 83, 83, 0.5);
   display:flex;
 justify-content: center;
 align-items: center;
@@ -131,6 +148,39 @@ flex-direction: column;
 height:50vh;
 
 }
+.contact_content h{
+  font-size: 2em;
+}
+.contact_content p{
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+.htmlcss_content{
+  background-color:  rgba(68, 83, 83, 0.5);
+  display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+/* gap:2em; */
+height:50vh;
+
+}
+.htmlcss_content h1{
+  margin:2em 0;
+  font-size: 2em;
+}
+.htmlcss_content p{
+  font-size: 1.2em;
+  /* line-height: 1.5em; */
+  margin:2em 0;
+  
+}
+.htmlcss_content button{
+  padding: 1.2em 3em;
+  background-color: rgb(224, 224, 83);
+  border-radius: 50px;
+}
+
 .footer_section {
   display: flex;
   justify-content: center;
