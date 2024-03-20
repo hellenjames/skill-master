@@ -58,7 +58,7 @@ quizButton.addEventListener("click", () => {
     quizButton.textContent = "Finish";
   }
   
-  renderQuestion();
+  // renderQuestion();
 
 });
 const startMinutes=4;
@@ -79,10 +79,24 @@ console.log(seconds)
     clearInterval(timer);
   }
 }
-
-
-
 console.log(countdownEl)
+
+
+if (e.target.textContent.toLowercase()==="next"){
+  quizButton.addEventListener("click", (e) => {
+    questions.innerHTML = "";
+    if (currentIndex === (htmlCss.length-1)) {
+      quizButton.textContent = "Finish";
+    }
+    
+    // renderQuestion();
+  
+  });
+}
+else{
+  location.replace("http://localhost:5500/http://127.0.0.1:5500/score.html")
+}  
+
 
 
 
