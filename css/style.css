@@ -220,6 +220,9 @@ right:-5px; */
   height: 70px;
   width: 200px;
 }
+.button{
+  display: none;
+}
 .score_content{
   background-color:  rgba(68, 83, 83, 0.5);
   display:flex;
@@ -228,6 +231,33 @@ right:-5px; */
   flex-direction: column;
   height:50vh;
 }
+.circle{
+  width:160px;
+  height:160px;
+  position:relative;
+  /* background-color: red; */
+}
+.outer{
+  height: 160px;
+  width:160px;
+  border-radius: 50%;
+  box-shadow:6px 6px 10px -1px rgba(0,0,0,0.15),-6px -6px 10px -1px -1px rgba(255,255,255,0.7) ;
+  padding: 20px;
+}
+.inner{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border:1px solid  rgb(224, 224, 83);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+#number{
+  font-weight: 600px;
+  color:black;
+}
+
 .footer_section {
   display: flex;
   justify-content: center;

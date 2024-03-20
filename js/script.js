@@ -21,11 +21,8 @@ const htmlCss = [
     D: { choice: "The closing element", correct: false },
   }
 ];
-
 let questions = document.querySelector(".quizes");
-
 const quizButton = document.querySelector(".btn");
-
 let currentIndex = 0;
 const renderQuestion = () => {
   let currentQuestion = htmlCss[currentIndex];
@@ -41,26 +38,22 @@ const renderQuestion = () => {
       </div> 
   `;
   questions.append(question);
-
   currentIndex += 1;
-
   console.log(currentQuestion);
   console.log(currentIndex);
 };
-
 document.addEventListener("DOMContentLoaded", () => {
   renderQuestion();
 });
-
-quizButton.addEventListener("click", () => {
-  questions.innerHTML = "";
-  if (currentIndex === (htmlCss.length-1)) {
-    quizButton.textContent = "Finish";
-  }
+// quizButton.addEventListener("click", () => {
+//   questions.innerHTML = "";
+//   if (currentIndex === (htmlCss.length-1)) {
+//     quizButton.textContent = "Finish";
+//   }
   
-  // renderQuestion();
+//   // renderQuestion();
 
-});
+// });
 const startMinutes=4;
 let time=startMinutes * 60;
 
@@ -73,40 +66,22 @@ seconds=seconds<10 ? "0" + seconds: seconds;
 countdownEl.innerHTML=`
 ${minutes}:${seconds}`;
 time--;
-
 console.log(seconds)
   if(minutes===0 && seconds==="00"){
     clearInterval(timer);
   }
 }
 console.log(countdownEl)
-
-
-if (e.target.textContent.toLowercase()==="next"){
   quizButton.addEventListener("click", (e) => {
-    questions.innerHTML = "";
-    if (currentIndex === (htmlCss.length-1)) {
-      quizButton.textContent = "Finish";
-    }
-    
-    // renderQuestion();
-  
+      questions.innerHTML = "";
+      if (currentIndex === (htmlCss.length-1)) {
+        document.querySelector(".button").style.display="block";
+        quizButton.style.display="none"
+      }
+      renderQuestion();
   });
-}
-else{
-  location.replace("http://localhost:5500/http://127.0.0.1:5500/score.html")
-}  
+document.querySelector(".button").addEventListener("click",()=>{
+  // alert("done")
+  location.replace("http://127.0.0.1:5500/score.html")
+})
 
-
-
-
-// question.append(multiplechoices)
-
-// updateQuestio();
-// updateMultipleChoices();
-// console.log(question);
-
-// let button=document.querySelector(".btn");
-// button.addEventListener("click",()=>{
-// let
-// });
