@@ -19,7 +19,7 @@ const htmlCss = [
     B: { choice: "It's a closing tag", correct: false },
     C: { choice: "The interrractivity", correct: false },
     D: { choice: "The closing element", correct: false },
-  },
+  }
 ];
 
 let questions = document.querySelector(".quizes");
@@ -57,14 +57,15 @@ quizButton.addEventListener("click", () => {
   if (currentIndex === (htmlCss.length-1)) {
     quizButton.textContent = "Finish";
   }
+  
   renderQuestion();
 
 });
-const startMinutes=5;
+const startMinutes=4;
 let time=startMinutes * 60;
 
 const countdownEl=document.getElementById("countdown");
-setInterval(updateCountdown,1000);
+const timer= setInterval(updateCountdown,1000);
 function updateCountdown(){
 const minutes=Math.floor(time/60);
 let seconds=time % 60;
@@ -73,8 +74,17 @@ countdownEl.innerHTML=`
 ${minutes}:${seconds}`;
 time--;
 
+console.log(seconds)
+  if(minutes===0 && seconds==="00"){
+    clearInterval(timer);
+  }
 }
+
+
+
 console.log(countdownEl)
+
+
 
 // question.append(multiplechoices)
 
