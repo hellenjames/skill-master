@@ -5,7 +5,7 @@
   font-family: "Josefin Sans", sans-serif;
 }
 body {
-  background-color: rgba(68, 83, 83, 0.5);
+  /* background-color: rgba(68, 83, 83, 0.5); */
 }
 .container {
   margin: 0 auto;
@@ -14,8 +14,7 @@ body {
 .nav_container{
   box-shadow: 0 0 6px lightgray;
   margin-bottom: 6em;
-  background-color:lightgray ;
-  
+  background-color:white ;
   position: fixed;
   right: 0;
   left: 0;
@@ -239,27 +238,19 @@ border: none;
   display:flex;
  justify-content: space-evenly;
  font-size:1.6em;
-
-   /* align-items: center; */
-  /* flex-direction: column; */
   height:50vh;
 }
 .number-score{
-  
+  /* display:flex; */
   width:160px;
   height:160px; 
-  /* /* position:relative; */
+  
 }
 #percentage{
   width:160px;
   height:160px;
 }
-
-/* .circle{
-  
-  position:relative;
-}
-.outer{
+/* .outer{
   height: 160px;
   width:160px;
   border-radius: 50%;
@@ -274,44 +265,77 @@ border: none;
   display:flex;
   align-items: center;
   justify-content: center;
-} */
+} */ */
 #number{
   font-weight: 600px;
   color:black;
 }
 .continue_container{
-  margin-top: 20vh;
+  margin-top:8em;
+}
+.continue_container h2{
+  font-size: 2em;
+  margin:1.5em;
 }
 .continue_content{
-  background-color:  rgba(68, 83, 83, 0.5);
   display:flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  flex-direction: row;
-  height:50vh; 
+  gap: 3em;
 }
-.continue_content p{
+.continue_left, .continue_right{
+  box-shadow: 0 0 5px lightgray;
+  padding: 2em;
+}
+.continue_left h3{
+color:  rgb(224, 224, 83);
+
+}
+.continue_left h2{
   font-size: 2em;
 }
-.free_card ul li{
-font-size: 1.5em
+.continue_left p{
+  font-size: 1.2em;
+  margin:1.2em;
 }
-.continue_content ul {
-font-size: 1.3em;
-gap:2em;
-line-height: 1.5em; 
+.continue_left ul{
+  line-height:2.5em;
+  font-size: 1.5em;
 }
-.continue_content button{
+.continue_left button{
   padding: 1.2em 3em;
   background-color: rgb(224, 224, 83);
   border-radius: 50px;
 border: none;
- 
+
 }
-.continue_content button a{
+.continue_left button a{
   text-decoration: none;
-  color:black;
 }
+
+.continue_right h3{
+  color:  rgb(224, 224, 83);
+  
+  }
+  .continue_right h2{
+    font-size: 2em;
+  }
+  .continue_right p{
+    font-size: 1.2em;
+    margin:1.2em;
+  }
+  .continue_right ul{
+    line-height:2.5em;
+    font-size: 1.5em;
+  }
+  .continue_right button{
+    padding: 1.2em 3em;
+    background-color: rgb(224, 224, 83);
+    border-radius: 50px;
+  border: none;
+  
+  }
+
 
 .footer_section {
   display: flex;
