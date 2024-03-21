@@ -11,13 +11,20 @@ body {
   margin: 0 auto;
   width: 90%;
 }
-/* .nav_right {
-} */
-
+.nav_container{
+  box-shadow: 0 0 6px lightgray;
+  margin-bottom: 6em;
+  /* background-color: ; */
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+ 
+}
 .nav_section{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;  
 }
 .nav_right ul {
   display: flex;
@@ -25,12 +32,9 @@ body {
   gap: 3em;
   list-style-type: none;
   font-size: 1.2em;
-
 }
-
 .nav_right ul li a{
   padding: 1em 3em;
-
 }
 .nav_right ul a {
   text-decoration: none;
@@ -40,10 +44,9 @@ body {
   background-color: rgb(224, 224, 83);
   color:black;
 }
-
-/* .hero_container h1{
-font-size: 1.5rem;
-} */
+.hero_container{
+  margin-top: 20vh;
+}
 .hero_content {
   display: flex;
   flex: 1;
@@ -74,6 +77,7 @@ font-size: 1.5rem;
   box-shadow: 0 0 5px;
   height: 30vh;
   background-color: rgba(68, 83, 83, 0.5);
+  /* margin-top: 20vh; */
 }
 
 .main_content p {
@@ -109,6 +113,9 @@ margin:10px 0;
 .aside_content p {
   line-height: 2em;
 }
+.tests_container{
+  margin-top: 20vh;
+}
 .test{
 background-color: rgba(68, 83, 83, 0.5);
 display:flex;
@@ -132,15 +139,12 @@ top:10em;
 }
 .test_content ul a{
   text-decoration: none;
-  color:black;
+  color: rgb(224, 224, 83);
+  line-height: 4em;
 }
-/* .test_content button{
-  width:520px;
-  margin-bottom:20px;
-  padding: 1em;
-  font-size: 1em;
-  
-} */
+.contact_container{
+  margin-top: 20vh;
+}
 .contact_content{
   background-color:  rgba(68, 83, 83, 0.5);
   display:flex;
@@ -158,13 +162,15 @@ height:50vh;
   font-size: 1.5em;
   line-height: 1.5em;
 }
+.htmlcss_container{
+  margin-top: 20vh;
+}
 .htmlcss_content{
   background-color:  rgba(68, 83, 83, 0.5);
   display:flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-/* gap:2em; */
 height:50vh;
 
 }
@@ -174,8 +180,8 @@ height:50vh;
 }
 .htmlcss_content p{
   font-size: 1.2em;
-  /* line-height: 1.5em; */
   margin:2em 0;
+
   
 }
 .htmlcss_content button{
@@ -188,6 +194,9 @@ height:50vh;
   text-decoration: none;
   color:black;
   font-size: 1.2em;
+}
+.quiz_container{
+  margin-top: 20vh;
 }
 .quiz_content{
 background-color:  rgba(68, 83, 83, 0.5);
@@ -207,8 +216,6 @@ height:50vh;
   background-color: rgb(224, 224, 83);
   border-radius: 50px;
 border: none;
-/* position: relative;
-right:-5px; */
 }
 .quiz_content #countdown{
   background-color:#fff;
@@ -223,6 +230,9 @@ right:-5px; */
 .button{
   display: none;
 }
+.score_container{
+  margin-top: 20vh;
+}
 .score_content{
   background-color:  rgba(68, 83, 83, 0.5);
   display:flex;
@@ -235,7 +245,6 @@ right:-5px; */
   width:160px;
   height:160px;
   position:relative;
-  /* background-color: red; */
 }
 .outer{
   height: 160px;
@@ -257,6 +266,39 @@ right:-5px; */
   font-weight: 600px;
   color:black;
 }
+.continue_container{
+  margin-top: 20vh;
+}
+.continue_content{
+  background-color:  rgba(68, 83, 83, 0.5);
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  height:50vh; 
+}
+.continue_content p{
+  font-size: 2em;
+}
+.free_card ul li{
+font-size: 1.5em
+}
+.continue_content ul {
+font-size: 1.3em;
+gap:2em;
+line-height: 1.5em; 
+}
+.continue_content button{
+  padding: 1.2em 3em;
+  background-color: rgb(224, 224, 83);
+  border-radius: 50px;
+border: none;
+ 
+}
+.continue_content button a{
+  text-decoration: none;
+  color:black;
+}
 
 .footer_section {
   display: flex;
@@ -276,11 +318,6 @@ right:-5px; */
   color: black;
 }
 
-/* .footer_section ul :hover a {
-  /* background-color: rgb(224, 224, 83); */
-/* color:rgb(224, 224, 83); */
-/* padding: 1em 3em; */
-/* } */
  .humberger {
   display: none;
 }

@@ -15,11 +15,14 @@ const htmlCss = [
   },
   {
     question: "What is HTML tags?",
-    A: { choice: "It's a markup language for creating web pages", correct: true },
+    A: {
+      choice: "It's a markup language for creating web pages",
+      correct: true,
+    },
     B: { choice: "It's a closing tag", correct: false },
     C: { choice: "The interrractivity", correct: false },
     D: { choice: "The closing element", correct: false },
-  }
+  },
 ];
 let questions = document.querySelector(".quizes");
 const quizButton = document.querySelector(".btn");
@@ -31,10 +34,10 @@ const renderQuestion = () => {
   question.innerHTML = `
   <div>
       <p>${currentQuestion.question}</p>
-      <p><input type="radio" name="quiz"> ${currentQuestion.A.choice}</p>
-     <p> <input type="radio" name="quiz"> ${currentQuestion.B.choice}</p>
-     <p> <input type="radio" name="quiz"> ${currentQuestion.C.choice}</p>
-     <p> <input type="radio" name="quiz"> ${currentQuestion.D.choice}</p>
+      <p><input type="radio" name="quiz"> <label>${currentQuestion.A.choice}</label></p>
+     <p> <input type="radio" name="quiz"> <label>${currentQuestion.B.choice}</label></p>
+     <p> <input type="radio" name="quiz"> <label>${currentQuestion.C.choice}</label></p>
+     <p> <input type="radio" name="quiz"> <label>${currentQuestion.D.choice}</label></p>
       </div> 
   `;
   questions.append(question);
@@ -45,43 +48,91 @@ const renderQuestion = () => {
 document.addEventListener("DOMContentLoaded", () => {
   renderQuestion();
 });
-// quizButton.addEventListener("click", () => {
-//   questions.innerHTML = "";
-//   if (currentIndex === (htmlCss.length-1)) {
-//     quizButton.textContent = "Finish";
-//   }
-  
-//   // renderQuestion();
 
-// });
-const startMinutes=4;
-let time=startMinutes * 60;
 
-const countdownEl=document.getElementById("countdown");
-const timer= setInterval(updateCountdown,1000);
-function updateCountdown(){
-const minutes=Math.floor(time/60);
-let seconds=time % 60;
-seconds=seconds<10 ? "0" + seconds: seconds;
-countdownEl.innerHTML=`
+const startMinutes = 4;
+let time = startMinutes * 60;
+
+const countdownEl = document.getElementById("countdown");
+const timer = setInterval(updateCountdown, 1000);
+function updateCountdown() {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  countdownEl.innerHTML = `
 ${minutes}:${seconds}`;
-time--;
-console.log(seconds)
-  if(minutes===0 && seconds==="00"){
+  time--;
+  if (minutes === 0 && seconds === "00") {
     clearInterval(timer);
   }
 }
-console.log(countdownEl)
-  quizButton.addEventListener("click", (e) => {
-      questions.innerHTML = "";
-      if (currentIndex === (htmlCss.length-1)) {
-        document.querySelector(".button").style.display="block";
-        quizButton.style.display="none"
-      }
-      renderQuestion();
-  });
-document.querySelector(".button").addEventListener("click",()=>{
-  // alert("done")
-  location.replace("http://127.0.0.1:5500/score.html")
-})
+// console.log(countdownEl)
+quizButton.addEventListener("click", (e) => {
+  questions.innerHTML = "";
+  if (currentIndex === htmlCss.length - 1) {
+    document.querySelector(".button").style.display = "block";
+    quizButton.style.display = "none";
+  }
+  renderQuestion();
 
+  selectQuestion();
+});
+document.querySelector(".button").addEventListener("click", () => {
+  selectQuestion()
+  // alert("done")
+  location.replace("http://127.0.0.1:5500/score.html");
+});
+
+const selectQuestion = () => {
+  const radioButtons = document.querySelectorAll("input[type=radio]");
+
+  radioButtons.forEach((radio) => {
+    radio.addEventListener("click", (e) => {
+      const questionName =
+        e.target.parentElement.parentElement.children[0].textContent;
+      const selectedAnswer = e.target.nextElementSibling.textContent;
+      // console.log(e.target.nextElementSibling.textContent);
+
+      htmlCss.find((quiz) => {
+        if (quiz.question === questionName) {
+          for (property in quiz) {
+            if (property !== "question") {
+              console.log(quiz[property])
+              delete quiz[property].selected
+              if (quiz[property].choice === selectedAnswer) {
+                quiz[property]["selected"] = true;
+
+                console.log(quiz[property]);
+              }
+            }
+          }
+        }
+      });
+    });
+  });
+
+  console.log(htmlCss)
+  console.log(radioButtons);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  selectQuestion();
+});
+
+
+htmlCss.map((item)=>{
+    const output=document.createElement("div");
+  output.classList.add("output");
+  output.innerHTML=`
+  <div>
+  <div>
+      <p>${currentQuestion.question}</p>
+      <p><input type="radio" name="quiz"> <label>${currentQuestion.A.choice}</label></p>
+     <p> <input type="radio" name="quiz"> <label>${currentQuestion.B.choice}</label></p>
+     <p> <input type="radio" name="quiz"> <label>${currentQuestion.C.choice}</label></p>
+     <p> <input type="radio" name="quiz"> <label>${currentQuestion.D.choice}</label></p>
+      </div> 
+  `;
+  output.append(output);
+  });
+  
