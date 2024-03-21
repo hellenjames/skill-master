@@ -1,3 +1,4 @@
+let selectedChoice = [];
 const htmlCss = [
   {
     question: "What is html?",
@@ -42,13 +43,12 @@ const renderQuestion = () => {
   `;
   questions.append(question);
   currentIndex += 1;
-  console.log(currentQuestion);
-  console.log(currentIndex);
+  // console.log(currentQuestion);
+  // console.log(currentIndex);
 };
 document.addEventListener("DOMContentLoaded", () => {
   renderQuestion();
 });
-
 
 const startMinutes = 4;
 let time = startMinutes * 60;
@@ -77,10 +77,15 @@ quizButton.addEventListener("click", (e) => {
 
   selectQuestion();
 });
+
 document.querySelector(".button").addEventListener("click", () => {
-  selectQuestion()
+  selectQuestion();
+
+  document.querySelector(".quiz_content").style.display = "none";
+  document.querySelector("#scores").style.display = "block";
+  showScores();
   // alert("done")
-  location.replace("http://127.0.0.1:5500/score.html");
+  // location.replace("http://127.0.0.1:5500/score.html");
 });
 
 const selectQuestion = () => {
@@ -97,12 +102,13 @@ const selectQuestion = () => {
         if (quiz.question === questionName) {
           for (property in quiz) {
             if (property !== "question") {
-              console.log(quiz[property])
-              delete quiz[property].selected
+              // console.log(quiz[property]);
+              delete quiz[property].selected;
               if (quiz[property].choice === selectedAnswer) {
                 quiz[property]["selected"] = true;
 
-                console.log(quiz[property]);
+                // console.log(quiz[property]);
+                selectedChoice.push(quiz[property]);
               }
             }
           }
@@ -111,28 +117,69 @@ const selectQuestion = () => {
     });
   });
 
-  console.log(htmlCss)
-  console.log(radioButtons);
+  // console.log(htmlCss);
+  // console.log(radioButtons);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   selectQuestion();
 });
 
+function showScores() {
+  htmlCss.map((item) => {
+    let correctChoice;
+    let selectedChoiceString;
+    let correctAnswers = [];
+    for (property in item) {
+      if (property !== "question") {
+        if (item[property].correct === true) {
+          correctChoice = item[property].choice;
+        }
+      }
+    }
+    const output = document.createElement("div");
+    output.innerHTML = `
+  <h3>${item.question}</h3>
+  <p>A: ${item.A.choice}</p>
+  <p>B: ${item.B.choice}</p>
+  <p>C: ${item.C.choice}</p>
+  <p>D: ${item.D.choice}</p>
 
-htmlCss.map((item)=>{
-    const output=document.createElement("div");
-  output.classList.add("output");
-  output.innerHTML=`
-  <div>
-  <div>
-      <p>${currentQuestion.question}</p>
-      <p><input type="radio" name="quiz"> <label>${currentQuestion.A.choice}</label></p>
-     <p> <input type="radio" name="quiz"> <label>${currentQuestion.B.choice}</label></p>
-     <p> <input type="radio" name="quiz"> <label>${currentQuestion.C.choice}</label></p>
-     <p> <input type="radio" name="quiz"> <label>${currentQuestion.D.choice}</label></p>
-      </div> 
   `;
-  output.append(output);
+    // console.log(selectedChoice);
+
+    selectedChoice.forEach((selected) => {
+      selectedChoiceString = selected.choice;
+      console.log(selected);
+      if (selected["correct"] === true) {
+        correctAnswers.push(selected);
+        console.log(selected["correct"]);
+      }
+      for (let child of output.children) {
+        if (child.innerHTML.includes(selectedChoiceString)) {
+          child.style.color = "red";
+        }
+      }
+    });
+
+    for (let child of output.children) {
+      if (child.innerHTML.includes(correctChoice)) {
+        child.classList.add("correct");
+        child.style.color = "green";
+      }
+    }
+    console.log(correctAnswers);
+
+    let totalCorrect=correctAnswers.length
+// console.log(document.querySelector(".number-score"))
+    document.querySelector(".number-score").innerHTML=`
+    <p>${totalCorrect} / ${htmlCss.length}</p>
+    `
+
+    let totalPercentage=((totalCorrect/htmlCss.length)*100).toFixed(2)
+    document.querySelector("#percentage").innerHTML=`
+    <h3>${totalPercentage}%</h3>
+    `
+    document.querySelector(".queries").append(output);
   });
-  
+}

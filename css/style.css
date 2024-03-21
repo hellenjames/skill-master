@@ -14,7 +14,8 @@ body {
 .nav_container{
   box-shadow: 0 0 6px lightgray;
   margin-bottom: 6em;
-  /* background-color: ; */
+  background-color:lightgray ;
+  
   position: fixed;
   right: 0;
   left: 0;
@@ -236,14 +237,26 @@ border: none;
 .score_content{
   background-color:  rgba(68, 83, 83, 0.5);
   display:flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+ justify-content: space-evenly;
+ font-size:1.6em;
+
+   /* align-items: center; */
+  /* flex-direction: column; */
   height:50vh;
 }
-.circle{
+.number-score{
+  
+  width:160px;
+  height:160px; 
+  /* /* position:relative; */
+}
+#percentage{
   width:160px;
   height:160px;
+}
+
+/* .circle{
+  
   position:relative;
 }
 .outer{
@@ -261,7 +274,7 @@ border: none;
   display:flex;
   align-items: center;
   justify-content: center;
-}
+} */
 #number{
   font-weight: 600px;
   color:black;
