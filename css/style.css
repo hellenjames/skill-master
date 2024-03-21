@@ -279,6 +279,11 @@ padding-bottom: 9em;
   align-items: center;
   gap: 3em;
 }
+.continue_left{
+  box-shadow: 0 0 5px lightgray;
+  padding: 2em;
+
+}
 .continue_right {
   box-shadow: 0 0 5px lightgray;
   padding: 2em;
