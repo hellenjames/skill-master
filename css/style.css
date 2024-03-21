@@ -82,6 +82,7 @@ body {
 .main_content p {
   font-size: 1.5em;
   line-height: 1.5em;
+  margin:5rem 0;
 }
 .aside_content {
   display: flex;
