@@ -17,7 +17,8 @@ const htmlCss = [
   {
     question: "What is HTML tags?",
     A: {
-      choice: "It's a markup language for creating web pages",
+      choice:
+        "Are simple instructions that tell a web browser how to format text",
       correct: true,
     },
     B: { choice: "It's a closing tag", correct: false },
@@ -170,16 +171,16 @@ function showScores() {
     }
     console.log(correctAnswers);
 
-    let totalCorrect=correctAnswers.length
-// console.log(document.querySelector(".number-score"))
-    document.querySelector(".number-score").innerHTML=`
+    let totalCorrect = correctAnswers.length;
+    // console.log(document.querySelector(".number-score"))
+    document.querySelector(".number-score").innerHTML = `
     <p>${totalCorrect} / ${htmlCss.length}</p>
-    `
+    `;
 
-    let totalPercentage=((totalCorrect/htmlCss.length)*100).toFixed(2)
-    document.querySelector("#percentage").innerHTML=`
+    let totalPercentage = ((totalCorrect / htmlCss.length) * 100).toFixed(2);
+    document.querySelector("#percentage").innerHTML = `
     <h3>${totalPercentage}%</h3>
-    `
+    `;
     document.querySelector(".queries").append(output);
   });
 }
